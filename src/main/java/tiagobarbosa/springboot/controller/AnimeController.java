@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tiagobarbosa.springboot.domain.Anime;
+import tiagobarbosa.springboot.requests.AnimePostRequestBody;
+import tiagobarbosa.springboot.requests.AnimePutRequestBody;
 import tiagobarbosa.springboot.service.AnimeService;
 import tiagobarbosa.springboot.util.DateUtil;
 
@@ -28,17 +30,23 @@ public class AnimeController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Anime> findById(@PathVariable long id) {
-        return ResponseEntity.ok(animeService.findById(id));
+        return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
     }
 
     @PostMapping
-    public ResponseEntity<Anime> save(@RequestBody Anime anime) {
-        return new ResponseEntity<>(animeService.save(anime), HttpStatus.CREATED);
+    public ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody animePostRequestBody) {
+        return new ResponseEntity<>(animeService.save(animePostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable long id){
+    public ResponseEntity<Void> delete(@PathVariable long id) {
         animeService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> replace(@RequestBody AnimePutRequestBody animePostRequestBody) {
+        animeService.replace(animePostRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

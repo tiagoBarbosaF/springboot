@@ -14,3 +14,6 @@
 - GET method ✅
 - POST method ✅
 - DELETE method ✅
+- PUT method ✅
+- Spring Data JPA ✅
+- Framework MapStruct ✅

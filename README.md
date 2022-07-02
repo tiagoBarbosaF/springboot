@@ -11,3 +11,6 @@
 - `@Component`, `@Autowired`, `@SpringBootApplication` ✅
 - Hot swap with spring boot devtools ✅
 - Starting project with `start.spring.io` ✅
+- GET method ✅
+- POST method ✅
+- DELETE method ✅

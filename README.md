@@ -17,3 +17,8 @@
 - PUT method ✅
 - Spring Data JPA ✅
 - Framework MapStruct ✅
+- Request params ✅
+- Custom exceptions ✅
+- Global handler ✅
+- Transactions ✅
+- Validating fields ✅

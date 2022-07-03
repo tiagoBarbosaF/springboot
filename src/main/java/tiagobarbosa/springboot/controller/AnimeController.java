@@ -11,6 +11,7 @@ import tiagobarbosa.springboot.requests.AnimePutRequestBody;
 import tiagobarbosa.springboot.service.AnimeService;
 import tiagobarbosa.springboot.util.DateUtil;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -28,13 +29,18 @@ public class AnimeController {
         return ResponseEntity.ok(animeService.listAll());
     }
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<Anime> findById(@PathVariable long id) {
+    @GetMapping(path = "/findById")
+    public ResponseEntity<Anime> findById(@RequestParam long id) {
         return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
     }
 
+    @GetMapping(path = "/findByName")
+    public ResponseEntity<List<Anime>> findByName(@RequestParam String name) {
+        return ResponseEntity.ok(animeService.findByName(name));
+    }
+
     @PostMapping
-    public ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody animePostRequestBody) {
+    public ResponseEntity<Anime> save(@RequestBody @Valid AnimePostRequestBody animePostRequestBody) {
         return new ResponseEntity<>(animeService.save(animePostRequestBody), HttpStatus.CREATED);
     }
 

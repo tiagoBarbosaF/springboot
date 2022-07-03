@@ -22,3 +22,8 @@
 - Global handler ✅
 - Transactions ✅
 - Validating fields ✅
+- Handler for validation fields ✅
+- Overwriting handler of spring ✅
+- Pagination ✅
+- WebMvcConfigurer ✅
+- Sorting, SQL log ✅

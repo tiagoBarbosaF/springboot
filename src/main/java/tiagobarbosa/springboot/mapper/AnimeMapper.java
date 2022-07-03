@@ -8,7 +8,7 @@ import tiagobarbosa.springboot.requests.AnimePutRequestBody;
 
 @Mapper(componentModel = "spring")
 public abstract class AnimeMapper {
-    public static AnimeMapper INSTANCE = Mappers.getMapper(AnimeMapper.class);
+    public static final AnimeMapper INSTANCE = Mappers.getMapper(AnimeMapper.class);
 
     public abstract Anime toAnime(AnimePostRequestBody animePostRequestBody);
 

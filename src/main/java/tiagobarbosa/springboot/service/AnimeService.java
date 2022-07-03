@@ -1,6 +1,9 @@
 package tiagobarbosa.springboot.service;
 
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import tiagobarbosa.springboot.domain.Anime;
 import tiagobarbosa.springboot.exception.BadRequestException;
@@ -17,8 +20,8 @@ import java.util.List;
 public class AnimeService {
     private final AnimeRepository animeRepository;
 
-    public List<Anime> listAll() {
-        return animeRepository.findAll();
+    public Page<Anime> listAll(Pageable pageable) {
+        return animeRepository.findAll(pageable);
     }
 
     public List<Anime> findByName(String name) {
@@ -39,7 +42,7 @@ public class AnimeService {
         animeRepository.delete(findByIdOrThrowBadRequestException(id));
     }
 
-    public void replace(AnimePutRequestBody animePutRequestBody) {
+    public void replace(@NotNull AnimePutRequestBody animePutRequestBody) {
         Anime savedAnime = findByIdOrThrowBadRequestException(animePutRequestBody.getId());
         Anime anime = AnimeMapper.INSTANCE.toAnime(animePutRequestBody);
         anime.setId(savedAnime.getId());

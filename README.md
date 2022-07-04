@@ -27,3 +27,10 @@
 - Pagination ✅
 - WebMvcConfigurer ✅
 - Sorting, SQL log ✅
+- RestTemplate ✅
+  - getForObject and getForEntity ✅
+  - exchange ✅
+  - POST ✅
+  - PUT and DELETE ✅
+- Spring Data JPA Test
+  - Introduction ✅

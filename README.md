@@ -32,5 +32,7 @@
   - exchange ✅
   - POST ✅
   - PUT and DELETE ✅
-- Spring Data JPA Test
+- Spring Data JPA Test ✅
   - Introduction ✅
+  - Exceptions ✅
+- Unit Tests ✅

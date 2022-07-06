@@ -36,3 +36,5 @@
   - Introduction ✅
   - Exceptions ✅
 - Unit Tests ✅
+- Integration Tests ✅
+- Maven Profile for Integration Testes ✅

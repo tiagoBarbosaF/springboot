@@ -38,3 +38,11 @@
 - Unit Tests ✅
 - Integration Tests ✅
 - Maven Profile for Integration Testes ✅
+- Spring Security ✅
+  - Memory authentication ✅
+  - CSRF Token ✅
+  - Security level of methods with `PreAuthorize` ✅
+  - Main authentication and default login page ✅
+  - Authentication with user in database ✅
+  - Protection URL with `Antmatcher` ✅
+  - Integration tests with Spring Security ✅

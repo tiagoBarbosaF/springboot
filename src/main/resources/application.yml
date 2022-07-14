@@ -3,6 +3,8 @@ server:
     include-stacktrace: on_param
 
 spring:
+  application:
+    name: springboot-project
   datasource:
     url: jdbc:mysql://localhost:3306/anime?createDatabaseIfNotExist=true
     username: root
@@ -16,3 +18,21 @@ logging:
     org:
       hibernate:
         SQL: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, metrics, health, prometheus
+
+
+  info:
+    env:
+      enabled: true
+
+info:
+  application:
+    name: Spring Boot project
+    description: Project for studies spring boot
+    author: Tiago Barbosa
+    github: https://github.com/tiagoBarbosaF/springboot
